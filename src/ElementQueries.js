@@ -176,7 +176,9 @@
             if (typeof(allQueries[mode]) == 'undefined') allQueries[mode] = {};
             if (typeof(allQueries[mode][property]) == 'undefined') allQueries[mode][property] = {};
             if (typeof(allQueries[mode][property][value]) == 'undefined') allQueries[mode][property][value] = selector;
-            else allQueries[mode][property][value] += ','+selector;
+            else if (!allQueries[mode][property][value].split(',').includes(selector)) {
+                allQueries[mode][property][value] += ','+selector;
+            }
         }
 
         function getQuery() {
