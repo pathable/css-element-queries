@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:marcj/css-element-queries.git"
+    "url": "git+ssh://git@github.com/marcj/css-element-queries.git"
   },
   "author": "Marc J. Schmidt",
   "license": "MIT",
@@ -22,5 +22,8 @@
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-bump": "^0.3.1"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
