@@ -426,11 +426,12 @@
 
             for (var i = 0, j = document.styleSheets.length; i < j; i++) {
                 try {
-                    readRules(document.styleSheets[i].cssRules || document.styleSheets[i].rules || document.styleSheets[i].cssText);
-                } catch(e) {
-                    if (e.name !== 'SecurityError') {
-                        throw e;
+                    if (document.styleSheets[i].href && 0 === document.styleSheets[i].href.indexOf('file://')) {
+                        console.log("CssElementQueries: unable to parse local css files, " + document.styleSheets[i].href);
                     }
+
+                    readRules(document.styleSheets[i].cssRules || document.styleSheets[i].rules || document.styleSheets[i].cssText);
+                } catch (e) {
                 }
             }
 
